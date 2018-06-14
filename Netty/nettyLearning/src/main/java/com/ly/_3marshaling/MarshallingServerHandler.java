@@ -13,6 +13,11 @@ import java.io.IOException;
 public class MarshallingServerHandler extends ChannelHandlerAdapter {
 
     @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("Netty Server active ......");
+    }
+
+    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) {
         try {
             Req req = (Req) msg;
@@ -25,7 +30,8 @@ public class MarshallingServerHandler extends ChannelHandlerAdapter {
             //如果有附件则保存附件
             if (null != req.getAttachment()) {
                 byte[] attachment = GzipUtils.ungzip(req.getAttachment());
-                String path = System.getProperty("user.dir") + File.separatorChar + "receive" + File.separatorChar
+                String path = System.getProperty("user.dir") + File.separatorChar +
+                        "Netty" + File.separatorChar + "receive" + File.separatorChar
                         + System.currentTimeMillis() + ".jpg";
                 FileOutputStream outputStream = new FileOutputStream(path);
                 outputStream.write(attachment);
