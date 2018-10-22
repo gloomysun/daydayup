@@ -14,8 +14,7 @@ public class Singleton {
 多线程下不安全，只适用于单线程
 ```java
 public class Singleton2 {
-    private Singleton2() {
-    }
+    private Singleton2() {}
 
     private static Singleton2 singleton;
 
@@ -31,8 +30,7 @@ public class Singleton2 {
 在方式1上添加了同步锁，不推荐
 ```java
 public class Singleton {
-    private Singleton() {
-    }
+    private Singleton() {}
 
     private static Singleton singleton;
 
@@ -62,7 +60,7 @@ public class Singleton {
 
     private static volatile Singleton singleton;
 
-    public static synchronized Singleton getInstance() {
+    public static Singleton getInstance() {
         if (singleton == null) {
             synchronized (Singleton.class){
                 //获得锁之后继续再一次判断，这样就安全了
