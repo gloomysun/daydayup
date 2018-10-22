@@ -1,4 +1,4 @@
-##饿汉式
+##饿汉式  
 在程序启动或单件模式类被加载的时候，单件模式实例就已经被创建。
 ```java
 public class Singleton {
@@ -9,8 +9,8 @@ public class Singleton {
     }
 }
 ```
-##懒汉式
-#####方式1
+##懒汉式  
+#####方式1  
 多线程下不安全，只适用于单线程
 ```java
 public class Singleton2 {
@@ -27,7 +27,7 @@ public class Singleton2 {
     }
 }
 ```
-#####方式2
+#####方式2  
 在方式1上添加了同步锁，不推荐
 ```java
 public class Singleton {
@@ -44,7 +44,7 @@ public class Singleton {
     }
 }
 ```
-#####方式3
+#####方式3  
 双重检查，注意关键字volatile，不加可能发生指令重排序
 ```java
     singleton = new Singleton();
@@ -76,7 +76,7 @@ public class Singleton {
 }
 ```
 
-##静态内部类
+##静态内部类  
 不仅能确保线程安全，也能保证单例的唯一性，同时也延迟了单例的实例化
 外部类加载时并不需要立即加载内部类，内部类不被加载则不去初始化INSTANCE，故而不占内存。即当SingleTon第一次被加载时，并不需要去加载SingleTonHoler，只有当getInstance()方法第一次被调用时，才会去初始化INSTANCE,第一次调用getInstance()方法会导致虚拟机加载SingleTonHoler类
 ```java
