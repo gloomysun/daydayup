@@ -23,5 +23,4 @@ public class Observable {
     public void addObserver(Observer observer) {
         observerList.add(observer);
     }
-
 }
