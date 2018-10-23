@@ -1,5 +1,6 @@
 package com.ly.factory;
 
+import com.ly.bean.AuDi;
 import com.ly.bean.Car;
 
 public class AuDiFactory implements CarFactory {
