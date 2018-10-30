@@ -1,4 +1,4 @@
-package com.ly.springsecurity.config;
+package com.ly.springsecurity.security;
 
 import com.ly.springsecurity.security.CustomUserService;
 import org.springframework.context.annotation.Bean;
