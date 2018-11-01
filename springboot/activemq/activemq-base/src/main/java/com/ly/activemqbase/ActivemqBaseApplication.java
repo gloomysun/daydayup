@@ -1,12 +1,12 @@
-package com.ly.springsecurity;
+package com.ly.activemqbase;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringSecurityApplication {
+public class ActivemqBaseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringSecurityApplication.class, args);
+		SpringApplication.run(ActivemqBaseApplication.class, args);
 	}
 }
