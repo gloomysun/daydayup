@@ -10,8 +10,7 @@ public class Sender {
     @Autowired
     private JmsTemplate jmsTemplate;
 
-    public void send() {
-
-        jmsTemplate.convertAndSend("test.queue", "生产者1辛苦生产的点对点消息成果");
+    public void send(String msg) {
+        jmsTemplate.convertAndSend("test.queue.first", msg);
     }
 }

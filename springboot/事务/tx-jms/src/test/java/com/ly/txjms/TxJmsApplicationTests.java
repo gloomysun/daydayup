@@ -15,7 +15,6 @@ public class TxJmsApplicationTests {
 	private Sender sender;
 	@Test
 	public void contextLoads() {
-		sender.send();
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {

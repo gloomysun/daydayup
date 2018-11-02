@@ -1,8 +1,8 @@
 package com.ly.txjms.controller;
 
-import com.ly.txjms.activemq.Sender;
+import com.ly.txjms.activemq.Receiver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,10 +10,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
 
     @Autowired
-    private Sender sender;
+    private JmsTemplate jmsTemplate;
+    @Autowired
+    private Receiver receiver;
+
+    /**
+     * 通过@JmsListener监听消息并发送出去
+     */
     @RequestMapping("/send")
-    public String  send(){
-        sender.send();
-        return "success";
+    public void send(String msg) {
+        jmsTemplate.setSessionTransacted(true);
+
+        jmsTemplate.convertAndSend("test.queue.first", msg);
+    }
+
+    /**
+     * 直接发送
+     */
+    @RequestMapping("/direct")
+    public void direct(String msg) {
+        receiver.receive(msg);
     }
 }
