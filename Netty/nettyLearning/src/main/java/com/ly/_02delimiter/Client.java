@@ -15,7 +15,7 @@ import io.netty.handler.codec.string.StringDecoder;
 
 public class Client {
     private static final Integer PORT = 9999;
-    private static final String HOST = "127.0.0.1";
+    private static final String HOST = "192.168.0.10";
     private static final String DELIMITER = "_$"; // 拆包分隔符
 
     public static void main(String[] args) {
