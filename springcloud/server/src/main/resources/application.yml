@@ -1,0 +1,20 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: server
+  security:
+    user:
+      name: admin
+      password: 123456
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:${server.port}/eureka
+    fetch-registry: false
+    register-with-eureka: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
