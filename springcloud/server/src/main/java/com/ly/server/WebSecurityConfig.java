@@ -34,13 +34,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // 如果是form方式,不能使用url格式登录
         http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
     }
-    @Bean(name = "hystrixRegistrationBean")
-    public ServletRegistrationBean servletRegistrationBean() {
-        ServletRegistrationBean registration = new ServletRegistrationBean(
-                new HystrixMetricsStreamServlet(), "/hystrix.stream");
-        registration.setName("hystrixServlet");
-        registration.setLoadOnStartup(1);
-        return registration;
-    }
+//    @Bean(name = "hystrixRegistrationBean")
+//    public ServletRegistrationBean servletRegistrationBean() {
+//        ServletRegistrationBean registration = new ServletRegistrationBean(
+//                new HystrixMetricsStreamServlet(), "/hystrix.stream");
+//        registration.setName("hystrixServlet");
+//        registration.setLoadOnStartup(1);
+//        return registration;
+//    }
 
 }

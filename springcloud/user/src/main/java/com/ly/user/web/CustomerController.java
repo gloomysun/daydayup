@@ -18,7 +18,7 @@ public class CustomerController {
     private CustomerRepository customerRepository;
 
     @GetMapping("/all")
-    @HystrixCommand
+//    @HystrixCommand
     public List<Customer> list(){
         return customerRepository.findAll();
     }
